@@ -7,6 +7,7 @@ var authJwtController = require('./auth_jwt');
 db = require('./db')(); //global hack
 var jwt = require('jsonwebtoken');
 var url = require('url') ;
+require("dotenv").load();
 
 
 var app = express();

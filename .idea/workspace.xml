@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d9ee19f9-cc16-478b-9ef6-92d5d45bbb3c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth_jwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/auth_jwt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +87,7 @@
       <workItem from="1582906900149" duration="544000" />
       <workItem from="1583013868877" duration="1885000" />
       <workItem from="1583051744059" duration="3489000" />
-      <workItem from="1583076375251" duration="8530000" />
+      <workItem from="1583076375251" duration="9367000" />
     </task>
     <servers />
   </component>
@@ -99,21 +95,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="794" height="202" key="GridCell.Tab.0.bottom" timestamp="1582796050000">
+    <state width="682" height="906" key="GridCell.Tab.0.bottom" timestamp="1583094083453">
       <screen x="50" y="23" width="1630" height="1027" />
     </state>
+    <state width="682" height="906" key="GridCell.Tab.0.bottom/-348.-1057.2560.1057/50.23.1630.1027@50.23.1630.1027" timestamp="1583094083453" />
     <state width="794" height="202" key="GridCell.Tab.0.bottom/50.23.1630.1027@50.23.1630.1027" timestamp="1582796050000" />
-    <state width="794" height="202" key="GridCell.Tab.0.center" timestamp="1582796050000">
+    <state width="682" height="906" key="GridCell.Tab.0.center" timestamp="1583094083452">
       <screen x="50" y="23" width="1630" height="1027" />
     </state>
+    <state width="682" height="906" key="GridCell.Tab.0.center/-348.-1057.2560.1057/50.23.1630.1027@50.23.1630.1027" timestamp="1583094083452" />
     <state width="794" height="202" key="GridCell.Tab.0.center/50.23.1630.1027@50.23.1630.1027" timestamp="1582796050000" />
-    <state width="794" height="202" key="GridCell.Tab.0.left" timestamp="1582796050000">
+    <state width="682" height="906" key="GridCell.Tab.0.left" timestamp="1583094083451">
       <screen x="50" y="23" width="1630" height="1027" />
     </state>
+    <state width="682" height="906" key="GridCell.Tab.0.left/-348.-1057.2560.1057/50.23.1630.1027@50.23.1630.1027" timestamp="1583094083451" />
     <state width="794" height="202" key="GridCell.Tab.0.left/50.23.1630.1027@50.23.1630.1027" timestamp="1582796050000" />
-    <state width="794" height="202" key="GridCell.Tab.0.right" timestamp="1582796050000">
+    <state width="682" height="906" key="GridCell.Tab.0.right" timestamp="1583094083452">
       <screen x="50" y="23" width="1630" height="1027" />
     </state>
+    <state width="682" height="906" key="GridCell.Tab.0.right/-348.-1057.2560.1057/50.23.1630.1027@50.23.1630.1027" timestamp="1583094083452" />
     <state width="794" height="202" key="GridCell.Tab.0.right/50.23.1630.1027@50.23.1630.1027" timestamp="1582796050000" />
   </component>
   <component name="XDebuggerManager">
@@ -121,7 +121,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server.js</url>
-          <line>51</line>
+          <line>52</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
