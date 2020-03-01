@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --timeout 10000 --exit"
   },
-  "author": "Shawn McCarthy",
+  "author": "Abyel Romero",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",

@@ -6,6 +6,8 @@ var authController = require('./auth');
 var authJwtController = require('./auth_jwt');
 db = require('./db')(); //global hack
 var jwt = require('jsonwebtoken');
+var url = require('url') ;
+
 
 var app = express();
 app.use(bodyParser.json());
@@ -32,64 +34,89 @@ function getJSONObject(req) {
     return json;
 }
 
-router.route('/post')
-    .post(authController.isAuthenticated, function (req, res) {
-            console.log(req.body);
-            res = res.status(200);
-            if (req.get('Content-Type')) {
-                console.log("Content-Type: " + req.get('Content-Type'));
-                res = res.type(req.get('Content-Type'));
-            }
-            var o = getJSONObject(req);
-            res.json(o);
-        }
-    );
-
-router.route('/postjwt')
-    .post(authJwtController.isAuthenticated, function (req, res) {
-            console.log(req.body);
-            res = res.status(200);
-            if (req.get('Content-Type')) {
-                console.log("Content-Type: " + req.get('Content-Type'));
-                res = res.type(req.get('Content-Type'));
-            }
-            res.send(req.body);
-        }
-    );
-
 router.post('/signup', function(req, res) {
-    if (!req.body.username || !req.body.password) {
-        res.json({success: false, msg: 'Please pass username and password.'});
-    } else {
-        var newUser = {
-            username: req.body.username,
-            password: req.body.password
-        };
-        // save the user
-        db.save(newUser); //no duplicate checking
-        res.json({success: true, msg: 'Successful created new user.'});
+
+    if (req.method = 'POST'){
+        var json = getJSONObject(req);
+        res.send(json);
+
+        if (!req.body.username || !req.body.password) {
+            res.json({success: false, msg: 'Please pass username and password.'});
+        } else {
+            var newUser = {
+                username: req.body.username,
+                password: req.body.password
+            };
+            // save the user
+            db.save(newUser); //no duplicate checking
+            res.json({success: true, msg: 'Successful created new user.'});
+        }
+
+    }
+    else { //HTTP request not supported.
+        res.send("HTTP request not supported.");
+        res.end();
     }
 });
 
 router.post('/signin', function(req, res) {
 
-        var user = db.findOne(req.body.username);
+    if(req.method == "POST") {
+        var json = getJSONObject(req);
+        res.send(json);
 
+        var user = db.findOne(req.body.username);
         if (!user) {
             res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
-        }
-        else {
+        } else {
             // check if password matches
-            if (req.body.password == user.password)  {
-                var userToken = { id : user.id, username: user.username };
+            if (req.body.password == user.password) {
+                var userToken = {id: user.id, username: user.username};
                 var token = jwt.sign(userToken, process.env.SECRET_KEY);
                 res.json({success: true, token: 'JWT ' + token});
-            }
-            else {
+            } else {
                 res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
             }
-        };
+        }
+    }
+    else{
+        res.send("HTTP request not supported.");
+        res.end();
+    }
 });
+
+router.post('/movies',function (req, res) {
+
+    if (req.method = 'GET'){
+        res.json({status:200, message:"GET Movies", headers: req.headers, query: req.query, env: process.env.UNIQUE_KEY});
+    }
+    else if (req.method = 'POST'){
+        res.json({status:200, message:"Movie Saved", headers: req.headers, query: req.query, env: process.env.UNIQUE_KEY});
+
+    }
+
+    else if (req.method = 'PUT'){
+        authJwtController.isAuthenticated, function (req, res){
+            res.json({status:200, message:"Movie Updated", headers: req.headers, query: req.query, env: process.env.UNIQUE_KEY});
+        }
+    }
+
+    else if (req.method = 'DELETE'){
+        authController.isAuthenticated, function (req, res) {
+            res.json({status:200, message:"Movie Deleted", headers: req.headers, query: req.query, env: process.env.UNIQUE_KEY});
+        }
+    }
+    else{
+        res.send("HTTP request not supported.");
+        res.end();
+    }
+});
+
+router.post('/*', function (req, res) {
+    //No base URL requests allowed.
+    res.json({status:401, message:"No base URL requests allowed", headers: req.headers, query: req.query});
+});
+
 
 app.use('/', router);
 app.listen(process.env.PORT || 8080);
