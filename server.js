@@ -64,9 +64,6 @@ router.use('/signup', function(req, res) {
 router.use('/signin', function(req, res) {
 
     if(req.method == "POST") {
-        // var json = getJSONObject(req);
-        // res.send(json);
-
         var user = db.findOne(req.body.username);
 
         if (!user) {
