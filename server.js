@@ -123,7 +123,6 @@ router.use('/*', function (req, res) {
 
 
 app.use('/', router);
-// app.listen(process.env.PORT || 8080);
-app.listen(1337);
+app.listen(process.env.PORT || 8080);
 
 module.exports = app; // for testing
