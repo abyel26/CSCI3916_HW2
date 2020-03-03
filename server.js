@@ -116,7 +116,7 @@ app.put('/movies', passport.authenticate('jwt', {
     res.status(200).send({ message:"Movie Updated", headers: req.headers, query: req.query, env: process.env.UNIQUE_KEY});
 });
 
-router.use('/*', function (req, res) {
+router.use('/', function (req, res) {
     //No base URL requests allowed.
     res.status(401).send({message:"No base URL requests allowed", headers: req.headers, query: req.query});
 });
